@@ -3,12 +3,13 @@ require 'omniauth-oauth2'
 module OmniAuth
   module Strategies
     class DropboxOauth2 < OmniAuth::Strategies::OAuth2
-      option :name, "dropbox_oauth2"
-      option :client_options, {
-        :site               => 'https://api.dropbox.com',
-        :authorize_url      => 'https://www.dropbox.com/oauth2/authorize',
-        :token_url          => 'https://api.dropbox.com/oauth2/token'
-      }
+      option :name, 'dropbox_oauth2'      
+      option :client_options,
+             site: 'https://api.dropbox.com',
+             authorize_url: 'https://www.dropbox.com/oauth2/authorize',
+             token_url: 'https://api.dropbox.com/oauth2/token'
+      option :authorize_params,
+             token_access_type: 'offline',
 
       uid { raw_info['uid'] }
 
