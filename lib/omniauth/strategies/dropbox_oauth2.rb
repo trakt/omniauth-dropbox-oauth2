@@ -9,9 +9,9 @@ module OmniAuth
              authorize_url: 'https://www.dropbox.com/oauth2/authorize',
              token_url: 'https://api.dropbox.com/oauth2/token'
       option :authorize_params,
-             token_access_type: 'offline',
+             token_access_type: 'offline'
 
-      uid { raw_info['uid'] }
+      uid { raw_info['account_id'] }
 
       info do
         {
